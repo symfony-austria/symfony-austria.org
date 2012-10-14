@@ -1,0 +1,8 @@
+vendor
+silex.phar
+cache/
+data/
+data/
+silex.log
+composer.phar
+web/php_errors

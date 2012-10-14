@@ -1,0 +1,35 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="span4">
+            <h2><i class="icon-bullhorn"></i> News</h2>
+            <p>
+                Die aktuellsten News, Terminänderungen und Ankündigungen findet ihr immer hier. Alle Netzwerke werden so aktuell wie möglich gehalten, aber hier ist die Information am aktuellsten.
+            </p>
+
+                <ul class="unstyled">
+                    {% for link in our_links %}
+                        <li><i class="icon-external-link"></i> {% include 'render.link.html.twig' with {'link': link } %}</li>
+                    {% endfor %}
+                </ul>
+
+        </div>
+        <div class="span4">
+              {% for pieceofnews in news %}
+                {% if loop.index <= news|length/2 %}
+                    <div class="well well-small">{% include 'render.news.html.twig' with {'news': pieceofnews } %}</div>
+                {% endif %}
+            {% endfor %}  
+        </div>
+        <div class="span4"> 
+              {% for pieceofnews in news %}
+                {% if loop.index > news|length/2 %}
+                    <div class="well well-small">{% include 'render.news.html.twig' with {'news': pieceofnews } %}</div>
+                {% endif %}
+            {% endfor %}  
+
+        </div>
+    </div>
+{% endblock %}
+

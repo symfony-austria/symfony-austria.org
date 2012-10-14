@@ -1,0 +1,59 @@
+{% extends "layout.html.twig" %}
+{% block content %}
+    <div class="row">
+        <div class="span4">
+            <h3><i class="icon-group"></i> Our Network</h3>
+            <p>
+                Generell sind wir über unser Netzwerk, alle recht gut erreichbar. Ob 
+                Ihr nun Twiter, Xing oder Email als Kontaktmöglichkeit nutzt bleibt euch
+                überlassen.
+            </p>
+            <div class="well well-small">
+                <ul class="unstyled">
+                    {% for link in our_links %}
+                        <li><i class="icon-external-link"></i> {% include 'render.link.html.twig' with {'link': link } %}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="span4">
+            <h3><i class="icon-phone"></i> Contact</h3>
+            <h4>Hauptansprechpartner</h4>
+            <p>
+                <address>
+                    <strong><a href="https://www.xing.com/profile/Julian_Prexler">Julian Prexler</a></strong><br>
+                    <abbr title="Email">E:</abbr> <a href="mailto:julian /at/ symfony-austria (dot) org">julian /at/ symfony-austria (dot) org</a><br>
+                    <abbr title="Phone">P:</abbr> +43-650-87 07 442
+                </address>
+            </p>
+            <!--
+            <h4>Verteiler</h4>
+            <p>
+                <address>
+                    <strong>Symfony Austria Organisation</strong><br>
+                    <abbr title="Email">E:</abbr> <a href="mailto:organisation /at/ symfony-austria (dot) org">organisation /at/ symfony-austria (dot) org</a>
+                </address>
+                <ul>
+                    <li>Julian Prexler</li>
+                </ul>
+            </p>
+            <p>
+                <address>
+                    <strong>Symfony Austria Members</strong><br>
+                    <abbr title="Email">E:</abbr> <a href="mailto:members /at/ symfony-austria (dot) org">members /at/ symfony-austria (dot) org</a>
+                </address>
+            </p>
+            -->
+            <!--
+
+            <h3><i class="icon-envelope"></i> Newsletter</h3>
+            <p>
+                Wer Interesse an einem Newsletter, welcher derzeit händisch geführt wird, einfach ein mail an <a href="mailto:newsletter /at/ symfony-austria (dot) org">newsletter /at/ symfony-austria (dot) org</a>
+            </p>
+            -->
+        </div>
+        <div class="span4">
+            <!-- contact form goes here -->
+        </div>
+    </div>
+{% endblock %}

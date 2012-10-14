@@ -1,0 +1,31 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="span4">
+            <h3><i class="icon-group"></i> Our Supporters</h3>
+            <div class="well well-small">
+                Unsere Helfer, Supporter und Sponsoren
+            </div>
+        </div>
+        <div class="span8">
+            <h3>&nbsp;</h3>
+            <div class="sfa-linkbox">
+                <ul class="unstyled pull-left" style="width:48%;margin-right:4%">
+                    {% for supporter in supporters %}
+                        {% if loop.index <= supporters|length/2 %}
+                            <li><i class="icon-external-link"></i> {% include 'render.supporter.html.twig' with { 'supporter': supporter, 'showdetail': true } %}</li>
+                        {% endif %}
+                    {% endfor %}  
+                </ul>
+                <ul class="unstyled pull-right" style="width:48%;">
+                    {% for supporter in supporters %}
+                        {% if loop.index > supporters|length/2 %}
+                            <li><i class="icon-external-link"></i> {% include 'render.supporter.html.twig' with { 'supporter': supporter, 'showdetail': true } %}</li>
+                        {% endif %}
+                    {% endfor %}  
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

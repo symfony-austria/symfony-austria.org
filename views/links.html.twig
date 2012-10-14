@@ -1,0 +1,35 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="span4">
+            <h3><i class="icon-group"></i> Our Network</h3>
+            <div class="well well-small">
+                <ul class="unstyled">
+                    {% for link in our_links %}
+                        <li><i class="icon-external-link"></i> {% include 'render.link.html.twig' with {'link': link } %}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="span8">
+            <h3><i class="icon-link"></i> Links</h3>
+            <div class="sfa-linkbox">
+                <ul class="unstyled pull-left" style="width:48%; margin-right:4%;">
+                    {% for link in links %}
+                        {% if loop.index0 <= links|length/2 %}
+                            <li><i class="icon-external-link"></i> {% include 'render.link.html.twig' with { 'link': link, 'showdetail': true } %}</li>
+                        {% endif %}
+                    {% endfor %}  
+                </ul>
+                <ul class="unstyled pull-right" style="width:48%;">
+                    {% for link in links %}
+                        {% if loop.index0 > links|length/2 %}
+                            <li><i class="icon-external-link"></i> {% include 'render.link.html.twig' with { 'link': link, 'showdetail': true } %}</li>
+                        {% endif %}
+                    {% endfor %}  
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

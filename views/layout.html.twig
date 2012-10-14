@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Symfony Austria{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Symfony Usergroup Austria">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="{{ app.request.basePath }}/css/bootstrap.min.css?v=1">
+    <link rel="stylesheet" href="{{ app.request.basePath }}/css/font-awesome.css?v=1">
+    <link rel="stylesheet" href="{{ app.request.basePath }}/css/main.css?v=1">
+    
+    <link rel="alternate" type="application/rss+xml" title="Symfony Austria Events" href="{{ app.request.basePath }}/rss/events" />
+    
+    <style type="text/css">
+        body 
+        {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <script src="{{ app.request.basePath }}/js/libs/modernizr2.6.2.min.js"></script>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
+
+</head>
+    <body>
+        <a href="https://github.com/symfony-austria"><img style="position: absolute; top: 0; right: 0; border: 0; z-index:3000;" src="{{ app.request.basePath }}/img/forkus_light_background.png" alt="Fork us on GitHub"></a>
+        {% block header %}     
+        <div class="navbar navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <span class="brand" style="background: url({{ app.request.basePath }}/img/symfony-austria-logo-small.png) no-repeat center;">&nbsp;</span><a class="brand" href="{{ path('home') }}">Symfony Austria</a>
+                    <div class="nav-collapse">
+                        <ul class="nav">
+                            <li class="{{ page == 'home' ? 'active':'' }}"> <a href="{{ path('home') }}"><i class="icon-home"></i> Home</a></li>
+                            <!-- <li class="{{ page == 'events' ? 'active':'' }}"><a href="{{ path('events') }}"><i class="icon-list-alt"></i> Events</a></li> -->
+                            <li class="dropdown {{ page == 'events' ? 'active':'' }}">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-list-alt"></i> Events <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <a href="{{ path('events') }}"><i class="icon-folder-open"></i> Events Archiv</a>
+                                    <a href="{{ path('rss_events') }}"><i class="icon-rss"></i> Events Rss Feed</a>
+                                    <a href="{{ path('ical') }}"><i class="icon-list-alt"></i> Events iCalendar</a>
+                                </ul>
+                            </li>
+                            <li class="{{ page == 'resources' ? 'active':'' }}"><a href="{{ path('resources') }}"><i class="icon-info-sign"></i> Resources</a></li>
+                        </ul>
+                        <ul class="nav pull-right">
+                            <li class="{{ page == 'about' ? 'active':'' }}"><a href="{{ path('about') }}"><i class="icon-question-sign"></i> About Us</a></li>
+                            <li><a target="_blank" href="https://www.xing.com/net/pri02a06fx/symfony_user_group_vienna/forums"><i class="icon-comments-alt"></i> Forum</a></li>
+                            <!-- <li class="{{ page == 'sitemap' ? 'active':'' }}"><a href="{{ path('sitemap') }}"><i class="icon-sitemap"></i> Sitemap</a></li> -->
+                            <!-- <li><a href="#">Link</a></li>
+                            <li class="divider-vertical"></li> -->
+                            <!--
+                            <li class="dropdown">
+                                <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="icon-group"></i> Our Network <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    {% for link in our_links %}
+                                        <li>{% include 'render.link.html.twig' with {'link': link, 'icon': 'external-link'} %}</li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            -->
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+        <div class="container">  
+        {% block content %}
+            
+        {% endblock %}
+        </div>
+        <div class="container">
+        {% block footer %}
+            <hr>
+            <footer>
+                <p>
+                    &copy; symfony austria {% if date()|date("Y") > 2012 %}2012-{% endif %}{{ date()|date("Y")}}
+                    <span style="padding-left:15px;"></span>
+                    <a href="{{ path('contact') }}"><i class="icon-envelope"></i> contact</a> 
+                    <span style="padding-left:15px;"></span>
+                    <a href="http://consistency.at/impr.php"><i class="icon-legal"></i> imprint</a>
+                    <span style="padding-left:15px;"></span>
+                    <a href="{{ path('supporters') }}"><i class="icon-star"></i> supporters</a>
+                    <span style="padding-left:15px;"></span>
+                    <a href="{{ path('links') }}"><i class="icon-link"></i> links</a>
+                    <span style="padding-left:15px;"></span>
+                    <a href="https://twitter.com/symfony_austria" rel="tooltip" title="twitter"><i class="icon-twitter"></i></a>
+                    <a href="https://github.com/symfony-austria" rel="tooltip" title="github"><i class="icon-github"></i></a>
+                    <span class="pull-right"><a href="http://symfony" title="symfony">symfony</a> is a trademark of Fabien Potencier. All rights reserved.</span>
+                </p>
+            </footer>
+        {% endblock %}
+        </div>
+            
+        <script src="{{ app.request.basePath }}/js/jquery.min.js"></script>
+        <script src="{{ app.request.basePath }}/js/bootstrap.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function () 
+        {
+            $("[rel=tooltip]").tooltip();
+            $("[rel=popover]").popover();
+        });
+     </script>
+
+    </body>
+</html>

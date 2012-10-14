@@ -1,0 +1,10 @@
+{% if companylink is not defined %}{% set companylink = true %}{% endif %}
+{% if companydetail is not defined %}{% set companydetail = false %}{% endif %}
+
+{% if companylink == true and company.link is not empty %}<a href="{{ company.link }}">{% endif %}
+{{ company.name }} <i class="icon-external-link"></i>
+{% if companylink == true and company.link is not empty %}</a>{% endif %}
+
+{% if companydetail == true %}
+
+{% endif %}

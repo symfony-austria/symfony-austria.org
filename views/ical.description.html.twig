@@ -1,0 +1,1 @@
+{% for talk_id in event.talks %}{% set talk = talks[talk_id] %}{% set person = persons[talk.speaker] %}{{ person.firstname }} {{ person.middlename }} {{ person.lastname }}{% if person.company is not empty %} von {{ companies[person.company]['name'] }}{% endif %} über {{ talk.title }}\n{% endfor %}

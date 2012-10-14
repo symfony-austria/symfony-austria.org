@@ -1,0 +1,31 @@
+{
+    "require": {
+        "composer/composer": "dev-master",
+        "dflydev/markdown": "dev-master",
+        "silex/silex": "1.0.*",
+        "twig/twig": ">=1.8.0,<2.0-dev",
+        "monolog/monolog": ">=1.0.0,<1.2-dev",
+        "symfony/browser-kit": "2.1.*",
+        "symfony/class-loader": "2.1.*",
+        "symfony/config": "2.1.*",
+        "symfony/console": "2.1.*",
+        "symfony/css-selector": "2.1.*",
+        "symfony/finder": "2.1.*",
+        "symfony/form": "2.1.*",
+        "symfony/monolog-bridge": "2.1.*",
+        "symfony/process": "2.1.*",
+        "symfony/security": "2.1.*",
+        "symfony/translation": "2.1.*",
+        "symfony/twig-bridge": "2.1.*",
+        "symfony/validator": "2.1.*",
+        "symfony/yaml": "2.1.*",
+        "misd/twig-markdowner": "1.0.*",
+        "suin/php-rss-writer": ">=1.0",
+        "eluceo/ical": "dev-master",
+        "mheap/silex-gravatar": "dev-master"
+    },
+    "autoload": {
+        "psr-0": { "": "src/" }
+    },
+    "minimum-stability": "dev"
+}

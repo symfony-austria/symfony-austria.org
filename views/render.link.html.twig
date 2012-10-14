@@ -1,0 +1,8 @@
+{% if showdetail is not defined %}{% set showdetail = false %}{% endif %}
+<a href="{{ link.url }}" target="_blank">
+{% if link.title is empty %}
+{{ link.url }}
+{% else %}
+{% if icon is defined %}<li><i class="icon-{{ icon }}"></i> {% endif %}{{ link.title }}
+{% endif %}
+</a> {% if showdetail == true %}{% if link.description is defined %}{{ link.description }}{% endif %}{% endif %}

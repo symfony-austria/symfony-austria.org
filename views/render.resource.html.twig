@@ -1,0 +1,11 @@
+{% if link_event is not defined %}{% set link_event = true %}{% endif %}
+<h4>
+    {% if resource.talk is not empty %}
+        Talk {{talks[resource.talk].title}}
+    {% endif %}
+    {{resource.title}}    
+</h4>
+{% if resource.talk is not empty and link_event == true %}<a href="{{ path('events') }}#{{ resource.talk }}"><i class="icon-link"></i> go to Event</a><br><br>{% endif %}
+<div class="resource-body">
+{{resource.body|markdown}}
+</div>

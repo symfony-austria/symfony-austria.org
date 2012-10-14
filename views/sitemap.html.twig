@@ -1,0 +1,22 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="span4">
+            Home
+           contact
+           imprint
+           supporters
+            <ul>
+               <li><a href="{{ path('events') }}"><i class="icon-folder-open"></i> Events Archiv</a></li>
+               <li><a href="{{ path('rss_events') }}"><i class="icon-rss"></i> Rss Events</a></li>
+               <li><a href="{{ path('ical') }}"><i class="icon-list-alt"></i> iCalendar</a></li>
+            </ul>
+        </div>
+        <div class="span4">
+        </div>
+        <div class="span4">
+        </div>
+    </div>
+{% endblock %}
+

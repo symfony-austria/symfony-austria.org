@@ -1,0 +1,7 @@
+{% include 'render.person.html.twig' with { 'person': persons[talk.speaker] } %}
+ über 
+{% if talk.links|length > 0 %}<a href="{{ talk.links[0] }}">{% endif %}
+ {{ talk.title }}
+{% if talk.links|length > 0 %}</a>{% endif %}
+{% if talk.resources is not empty %}<a href="{{ path('resources') }}#{{talk.resources}}" rel="tooltip" title="Resources available"><i class="icon-download"></i></a>{% endif %}
+</a> 

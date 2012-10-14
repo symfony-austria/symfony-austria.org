@@ -1,0 +1,5 @@
+{% if locationlink is not defined %}{% set locationlink = true %}{% endif %}{% if locationdetail is not defined %}{% set locationdetail = false %}{% endif %}{% if locationlink == true %}<a data-content="{{ location.address }}, {{ location.zip }} {{ location.city }}, {{ location.country }}" rel="popover" href="{{ location.link }}" data-original-title="{{ location.name }}" data-placement="top" data-trigger="hover">{% endif %}{{ location.name }}{% if locationlink == true %}</a>{% endif %}{% if locationdetail == true %}
+{{ location.address }}, 
+{{ location.zip }} 
+{{ location.city }}, 
+{{ location.country }}{% endif %}

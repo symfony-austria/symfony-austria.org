@@ -1,0 +1,8 @@
+{% if showdetail is not defined %}{% set showdetail = true %}{% endif %}
+<a href="{{ supporter.url }}" target="_blank">
+{% if supporter.name is empty %}
+{{ supporter.url }}
+{% else %}
+{% if icon is defined %}<li><i class="icon-{{ icon }}"></i> {% endif %}{{ supporter.name }}
+{% endif %}
+</a> {% if showdetail == true %}{% if supporter.description is defined %}{{ supporter.description|markdown }}{% endif %}{% endif %}

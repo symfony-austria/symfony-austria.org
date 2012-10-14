@@ -1,0 +1,21 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="span4"> 
+            <h3><i class="icon-download"></i> Resources</h3>
+            <div class="well well-small">
+                <div class="caption">
+                    <p>Infos, Linksammlungen, Downloads und mehr zu den Talks &amp; rund um Symfony.</p>
+                </div>
+            </div>
+        </div>
+        <div class="span8">
+            {% for key, resource in resources %}
+                {% include 'render.resource.html.twig' with {'resource': resource } %}
+                {% if loop.last != true %}<hr>{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

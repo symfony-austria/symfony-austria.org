@@ -1,0 +1,8 @@
+<date>{{ event.date }}</date>
+<time>{{ event.time }}</time>
+<location>{% include 'render.location.html.twig' with {'location': locations[event.location]} %}</location>
+<topic>
+    {% for talk_id in event.talks %}
+    {% include 'render.talk.html.twig' with {'talk': talks[talk_id]} %}
+    {% endfor %}
+</topic>

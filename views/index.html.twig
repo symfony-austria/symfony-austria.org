@@ -1,0 +1,47 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <div class="hero-unit">
+        <img style="float: left; margin-right: 20px;" alt="" src="{{ app.request.basePath }}/img/symfony-austria-logo.png" width="100" height="100">
+        <h1>Welcome to Symfony Austria</h1>
+        <p>Usergroup for <a href="http://symfony.com">Symfony</a>. It is a PHP framework for web projects.</p>
+    </div>
+
+    <div class="row">
+        <div class="span4">
+            <h2><i class="icon-group"></i> Our Network</h2>
+            <div class="well well-small">
+                <ul class="unstyled">
+                    {% for link in our_links %}
+                        <li><i class="icon-external-link"></i> {% include 'render.link.html.twig' with {'link': link } %}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="well well-small">
+                  <a href="{{ path('links') }}"><i class="icon-folder-open"></i> more Links</a>
+            </div>
+        </div>
+        <div class="span4">
+            <h2><i class="icon-bullhorn"></i> News</h2>
+            <div class="well well-small">
+                {% for news_id in news_actual %}
+                    {% include 'render.news.html.twig' with {'news': news[news_id]} %}
+                {% endfor %}  
+            </div>
+            <div class="well well-small">
+                  <a href="{{ path('news') }}"><i class="icon-folder-open"></i> News Archiv</a>
+            </div>
+        </div>
+        <div class="span4">
+            <h2><i class="icon-list-alt"></i> Upcomming Events</h2>
+            {% for event_id in events_actual %}
+                {% include 'render.event.html.twig' with {'event': events[event_id]} %}
+            {% endfor %}
+            <div class="alert alert-info">
+               <a href="{{ path('events') }}"><i class="icon-folder-open"></i> Events Archiv</a>
+               <a href="{{ path('rss_events') }}"><i class="icon-rss"></i> Rss Events</a>
+               <a href="{{ path('ical') }}"><i class="icon-list-alt"></i> iCalendar</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

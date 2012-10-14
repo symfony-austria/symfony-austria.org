@@ -1,0 +1,12 @@
+{% if personlink is not defined %}{% set personlink = true %}{% endif %}
+{% if persondetail is not defined %}{% set persondetail = false %}{% endif %}
+{% spaceless %}
+{% if personlink == true and person.links|length > 0 %}
+<a href="{{ person.links[0] }}">{% endif %}{{ person.firstname }} {{ person.middlename }} {{ person.lastname }}{% if personlink == true and person.links|length > 0 %}</a>
+{% endif %}
+
+{% if persondetail == true %}
+{% if person.company is not empty %}- {% include 'render.company.html.twig' with {'company': companies[person.company] } %}{% endif %}
+<br>
+{% endif %}
+{% endspaceless %}

@@ -1,0 +1,59 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="span4">
+            <h3><i class="icon-list"></i> Events</h3>
+            {% for event in events %}
+                {% include 'render.event.html.twig' with {'event': event} %}
+            {% endfor %}
+        </div>
+        <div class="span4">
+            <h3><i class="icon-user"></i> Speakers</h3>
+            <div class="well">
+                {% for person in persons|sort %}
+                    {% include 'render.person.html.twig' with {'news': person, 'personlink': true, 'persondetail': true } %}
+                    <hr>
+                {% endfor %}  
+            </div>
+        </div>
+        <div class="span4">
+            <h3><i class="icon-list-alt"></i> iCal &amp; <i class="icon-rss"></i> Rss</h3>
+            <div class="alert alert-info">
+                <ul>
+                    <li><a href="{{ path('rss_events') }}"><i class="icon-rss"></i> Rss Events</a></li>
+                    <li><a href="{{ path('ical') }}"><i class="icon-list-alt"></i> iCalendar</a></li>
+                </ul>
+            </div>
+            <h3><i class="icon-comment"></i> Talk Pipline</h3>
+            <div class="alert alert-info">
+                <ul>
+                    {% for talk_id in unscheduled_talks %}
+                        <li>{% include 'render.talk.html.twig' with {'talk': talks[talk_id]} %}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <div class="alert alert-danger sfa-talkbull">
+                <h3><i class="icon-bullhorn"></i> Have a Talk for us?</h3>
+                <p>
+                    Wir sind immer auf der Suche nach Speakern für Symfony- oder verwandte Themen.
+                </p>
+                <h3><i class="icon-bullhorn"></i> Want to host us?</h3>
+                <p>
+                    Firmen die ein Usergroup Treffen einmal hosten möchten werden auch immer wieder gesucht.
+                </p>
+                <p>
+                    <div class="row">
+                        <div class="span4">
+                            <a href="{{ path('contact') }}">
+                                <button class="btn btn-large btn-primary btn-danger" type="button"><i class="icon-envelope"></i> Contact us!</button>
+                            </a>
+                        </div>
+                    </div>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
