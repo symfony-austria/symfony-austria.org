@@ -6,3 +6,4 @@ data/
 silex.log
 composer.phar
 web/php_errors
+/web/*.log
