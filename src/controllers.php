@@ -155,7 +155,7 @@ $app->get('/rss/events', function ($db) use ($app)
             $item
                 ->title($event['title'])
                 ->description($app['twig']->render('rss.event.html.twig', array_merge(array('event' => $event),$db)))
-                ->url('http://symfony-austria/events#'.$event['date'])
+                ->url('http://symfony-austria.at/events#'.$event['date'])
                 ->appendTo($channel);
             
         }
