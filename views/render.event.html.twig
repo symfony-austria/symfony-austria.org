@@ -2,7 +2,7 @@
 {% for talk_id in event.talks %}{% if talks[talk_id].resources is not empty %}{% set has_resources = true %}{% endif %}{% endfor %}
 <div class="sfa-event alert alert-info">
     {% if has_resources == true %}<span class="label label-warning pull-right">Resources available</span>{% endif %}
-    <h4><a name="event_{{ event.date }}">{{ event.title }}</a></h4>
+    <h4><a name="event_{{ event.date }}"></a>{{ event.title }}</h4>
     <h5>{{ event.date }}, {{ event.time }} Uhr @{% include 'render.location.html.twig' with {'location': locations[event.location]} %}</h5>
      <ul class="unstyled">
         {% for talk_id in event.talks %}
