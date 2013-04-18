@@ -1,0 +1,36 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <div class="row">
+        <div class="span4"> 
+            <h3><i class="icon-truck"></i> Jobs</h3>
+            <div class="well well-small">
+                <div class="caption">
+                    <p>Job Angebote im Bereich Symfony</p>
+                </div>
+            </div>
+            
+            <div class="well well-small sfa-talkbull">
+                <p>
+                    <i class="icon-bullhorn"></i> Interested? Contact us.
+                </p>
+                <p>
+                    <div class="row">
+                        <div class="span4">
+                            <a href="{{ path('contact') }}">
+                                <button class="btn btn-large btn-primary" type="button"><i class="icon-envelope"></i> Contact us!</button>
+                            </a>
+                        </div>
+                    </div>
+                </p>
+            </div>
+        </div>
+        <div class="span8">
+            {% for key, job in jobs %}
+                {% include 'render.job.html.twig' with {'job': job } %}
+                {% if loop.last != true %}<hr>{% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+

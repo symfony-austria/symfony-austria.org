@@ -1,0 +1,7 @@
+{% if link_event is not defined %}{% set link_event = true %}{% endif %}
+<h4>
+    {{job.title}}    
+</h4>
+<div class="job-body">
+{{job.body|markdown}}
+</div>
