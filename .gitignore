@@ -1,5 +1,6 @@
 vendor
 silex.phar
+config/ip.php
 cache/
 data/
 data/
