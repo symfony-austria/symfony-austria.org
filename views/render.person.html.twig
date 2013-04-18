@@ -1,3 +1,4 @@
+{% if person is null %}{% set person={'firstname':'Someone'} %}{% endif %}
 {% if personlink is not defined %}{% set personlink = true %}{% endif %}
 {% if persondetail is not defined %}{% set persondetail = false %}{% endif %}
 {% spaceless %}
