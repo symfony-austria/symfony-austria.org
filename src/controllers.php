@@ -15,6 +15,7 @@ $linksDatabase = $yaml->parse(file_get_contents(__DIR__."/../data/links.yml"));
 $newsDatabase = $yaml->parse(file_get_contents(__DIR__."/../data/news.yml"));
 $selectorsDatabase = $yaml->parse(file_get_contents(__DIR__."/../data/selectors.yml"));
 $resoucresDatabase = $yaml->parse(file_get_contents(__DIR__."/../data/resources.yml"));
+$jobDatabase = $yaml->parse(file_get_contents(__DIR__."/../data/jobs.yml"));
 
 $db = array
 (
@@ -33,6 +34,7 @@ $db = array
     'persons' => $database['persons'],
     'companies' => $database['companies'],
     'resources' => $resoucresDatabase['resoucres'],
+    'jobs' => $jobDatabase['jobs'],
 );
 $app['controllers']->value('db', $db);
 
@@ -59,6 +61,12 @@ $app->get('/news', function ($db) use ($app)
     $pageData = array_merge(array('page' => 'news'),$db);
     return $app['twig']->render('news.html.twig', $pageData);
 })->bind('news');
+
+$app->get('/jobs', function ($db) use ($app) 
+{
+    $pageData = array_merge(array('page' => 'jobs'),$db);
+    return $app['twig']->render('jobs.html.twig', $pageData);
+})->bind('jobs');
 
 $app->get('/supporters', function ($db) use ($app) 
 {
