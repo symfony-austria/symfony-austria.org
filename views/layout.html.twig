@@ -22,10 +22,9 @@
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <script src="{{ app.request.basePath }}/js/libs/modernizr2.6.2.min.js"></script>
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="apple-touch-icon.png">
-
+    {% include 'tracking.woopra.html.twig' %}
 </head>
     <body>
         <a href="https://github.com/symfony-austria"><img style="position: absolute; top: 0; left: 0; border: 0; z-index:3000;" src="{{ app.request.basePath }}/img/forkus_light_background_left.png" alt="Fork us on GitHub"></a>
@@ -52,6 +51,7 @@
                                 </ul>
                             </li>
                             <li class="{{ page == 'resources' ? 'active':'' }}"><a href="{{ path('resources') }}"><i class="icon-info-sign"></i> Resources</a></li>
+                            <li class="{{ page == 'jobs' ? 'active':'' }}"><a href="{{ path('jobs') }}"><i class="icon-truck"></i> Jobs</a></li>
                         </ul>
                         <ul class="nav pull-right">
                             <li class="{{ page == 'about' ? 'active':'' }}"><a href="{{ path('about') }}"><i class="icon-question-sign"></i> About Us</a></li>
@@ -87,6 +87,8 @@
                 <p>
                     &copy; symfony austria {% if date()|date("Y") > 2012 %}2012-{% endif %}{{ date()|date("Y")}}
                     <span style="padding-left:15px;"></span>
+                    <a title="Clicky Web Analytics" href="http://clicky.com/100603214"><img alt="Clicky Web Analytics" src="http://cdn.staticstuff.net/media/links/badge.gif" border="0" /></a> 
+                    <span style="padding-left:15px;"></span>
                     <a href="{{ path('contact') }}"><i class="icon-envelope"></i> contact</a> 
                     <span style="padding-left:15px;"></span>
                     <a href="http://consistency.at/impr.php"><i class="icon-legal"></i> imprint</a>
@@ -112,6 +114,6 @@
             $("[rel=popover]").popover();
         });
      </script>
-
+    {% include 'tracking.clicky.html.twig' %}
     </body>
 </html>
