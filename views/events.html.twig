@@ -12,7 +12,7 @@
             <h3><i class="icon-user"></i> Speakers</h3>
             <div class="well">
                 {% for person in persons|sort %}
-                    {% include 'render.person.html.twig' with {'news': person, 'personlink': true, 'persondetail': true } %}
+                    {% include 'render.person.html.twig' with {'personlink': true, 'persondetail': true } %}
                     <hr>
                 {% endfor %}  
             </div>
