@@ -29,6 +29,7 @@ $db = array
     'supporters' => $linksDatabase['supporters'],
     
     'events' => $database['events'],
+    'events_reverse' => array_reverse($database['events']),
     'locations' => $database['locations'],
     'talks' => $database['talks'],
     'persons' => $database['persons'],
