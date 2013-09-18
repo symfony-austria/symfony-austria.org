@@ -34,8 +34,10 @@
         </div>
         <div class="span4">
             <h2><i class="icon-list-alt"></i> Upcomming Events</h2>
-            {% for event_id in events_actual %}
-                {% include 'render.event.html.twig' with {'event': events[event_id]} %}
+            {% for event in events %}
+                {% if date(event.date) > date('-2days') %}
+                    {% include 'render.event.html.twig' with {'event': event} %}
+                {% endif %}
             {% endfor %}
             <div class="alert alert-info">
                <a href="{{ path('events') }}"><i class="icon-folder-open"></i> Events Archiv</a>
