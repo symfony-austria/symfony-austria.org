@@ -34,7 +34,7 @@
         </div>
         <div class="span4">
             <h2><i class="icon-list-alt"></i> Upcomming Events</h2>
-            {% for event in events %}
+            {% for event in events_reverse %}
                 {% if date(event.date) > date('-2days') %}
                     {% include 'render.event.html.twig' with {'event': event} %}
                 {% endif %}
