@@ -158,7 +158,10 @@ $app->get('/rss/events', function ($db) use ($app)
     
     foreach ($db['events'] as $id => $event)
     {
-        if (in_array($id, $db['events_actual']))
+        $prevDate = new DateTime('now -2days');
+        $eventDate = new DateTime($event['date']);
+
+        if ($eventDate > $prevDate)
         {
             $item = new Item();
             $item
